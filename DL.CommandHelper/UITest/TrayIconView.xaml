@@ -1,0 +1,19 @@
+﻿<Window x:Class="UITest.TrayIconView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TrayIcon" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary x:Uid="托盘菜单">
+            <ContextMenu x:Key="TrayIconMenu">
+                <MenuItem Header="打開主面板" ></MenuItem>
+                <MenuItem Header="設置" ></MenuItem>
+                <MenuItem Header="檢測更新" ></MenuItem>
+                <MenuItem Header="關於..." ></MenuItem>
+                <MenuItem Header="退出" ></MenuItem>
+            </ContextMenu>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TextBlock Text="ringht clikc TrayIcon"/>
+    </Grid>
+</Window>

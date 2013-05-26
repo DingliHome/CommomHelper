@@ -1,0 +1,120 @@
+﻿<Window x:Class="UITest.SocketTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SocketTest"
+        Height="500"
+        Width="600">
+    <Grid>
+        <Label Content="输入Server端口号:"
+               Height="28"
+               HorizontalAlignment="Left"
+               Margin="13,10,0,0"
+               Name="label1"
+               VerticalAlignment="Top"
+               Width="109" />
+        <TextBox Height="23"
+                 HorizontalAlignment="Left"
+                 Margin="128,10,0,0"
+                 Name="textBox1"
+                 VerticalAlignment="Top"
+                 Width="191" />
+        <Button Content="开始"
+                Height="23"
+                HorizontalAlignment="Left"
+                Margin="358,10,0,0"
+                Name="button1"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="button1_Click" />
+        <Button Content="停止"
+                Height="23"
+                HorizontalAlignment="Left"
+                Margin="462,9,0,0"
+                Name="button2"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="button2_Click" />
+        <Button Content="创建客户端"
+                Height="23"
+                HorizontalAlignment="Left"
+                Margin="21,56,0,0"
+                Name="button3"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="button3_Click" />
+        <ListBox Height="333"
+                 HorizontalAlignment="Left"
+                 Margin="21,99,0,0"
+                 Name="listBox1"
+                 VerticalAlignment="Top"
+                 Width="167"
+                 ItemsSource="{Binding ClientSockets}"
+                 IsSynchronizedWithCurrentItem="True"
+                 SelectionChanged="listBox1_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"
+                                   Margin="0 0 10 0" />
+                        <TextBlock Text="{Binding IP}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="连接"
+                Height="23"
+                IsEnabled="{Binding SelectedSocket.IsConnected, Converter={StaticResource BoolToInverseConverter}}"
+                HorizontalAlignment="Left"
+                Margin="244,99,0,0"
+                Name="button4"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="button4_Click" />
+        <Button Content="断开"
+                Height="23"
+                IsEnabled="{Binding SelectedSocket.IsConnected}"
+                HorizontalAlignment="Left"
+                Margin="358,99,0,0"
+                Name="button5"
+                Click="button5_Click"
+                VerticalAlignment="Top"
+                Width="75" />
+        <ListBox Height="100"
+                 ItemsSource="{Binding SelectedSocket.ReceiveDatas}"
+                 HorizontalAlignment="Left"
+                 Margin="215,164,0,0"
+                 Name="listBox2"
+                 VerticalAlignment="Top"
+                 Width="300" />
+        <Label Content="接受数据"
+               Height="27"
+               HorizontalAlignment="Left"
+               Margin="215,131,0,0"
+               Name="label3"
+               VerticalAlignment="Top"
+               Width="113" />
+        <Label Content="发送数据"
+               Height="28"
+               HorizontalAlignment="Left"
+               Margin="215,278,0,0"
+               Name="label4"
+               VerticalAlignment="Top"
+               Width="87" />
+        <TextBox Height="52"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Left"
+                 Margin="220,316,0,0"
+                 Name="textBox2"
+                 VerticalAlignment="Top"
+                 Width="296" />
+        <Button Content="发送"
+                Height="27"
+                HorizontalAlignment="Left"
+                Margin="449,397,0,0"
+                Name="button6"
+                VerticalAlignment="Top"
+                Width="66"
+                Click="button6_Click" />
+    </Grid>
+</Window>

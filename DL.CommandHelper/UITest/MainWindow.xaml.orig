@@ -1,0 +1,69 @@
+﻿<Window x:Class="UITest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:Controls="clr-namespace:ClassLibraryHelper.WPF.Behaviors;assembly=ClassLibraryHelper" 
+        Title="MainWindow" Height="350" Width="525">
+<<<<<<< local
+    <Window.Resources>
+        
+=======
+>>>>>>> other
+
+<<<<<<< local
+    </Window.Resources>
+=======
+>>>>>>> other
+    <Grid>
+<<<<<<< local
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*" />
+            <RowDefinition Height="242*" />
+        </Grid.RowDefinitions>
+        <Button Content="click" x:Name="btn" Click="ClickMethod" Grid.Row="0" />
+        <ListBox x:Name="listBox" Grid.Row="1" Height="0" >
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="group">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0:0:0.5">
+                            <VisualTransition.GeneratedEasingFunction>
+                                <CubicEase EasingMode="EaseIn"/> 
+                            </VisualTransition.GeneratedEasingFunction>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="visualState">
+                        <Storyboard >
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="listBox"  Storyboard.TargetProperty="Height">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"  />
+                            	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="100" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            
+            <ListBoxItem Content="111111"/>
+            <ListBoxItem Content="111111"/>
+            <ListBoxItem Content="111111"/>
+            <ListBoxItem Content="111111"/>
+            <ListBoxItem Content="111111"/>
+            <ListBoxItem Content="111111"/>
+=======
+        <ListBox ItemsSource="{Binding Persons}" SelectionMode="Multiple">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <Controls:ReadOnyPropertyAction Property="SelectedItems"  BindablePropertyItem="{Binding CheckedPerson, Mode=TwoWay}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBoxItem}}"/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+>>>>>>> other
+        </ListBox>
+    </Grid>
+</Window>

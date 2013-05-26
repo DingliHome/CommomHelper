@@ -1,0 +1,56 @@
+﻿<Window x:Class="UITest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:Controls="clr-namespace:ClassLibraryHelper.WPF.Behaviors;assembly=ClassLibraryHelper" 
+        Title="MainWindow" Height="350" Width="525">
+
+    <Grid>
+        <StackPanel>
+            <ListBox ItemsSource="{Binding Persons}" SelectionMode="Multiple">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <Controls:ReadOnyPropertyAction Property="SelectedItems"  BindablePropertyItem="{Binding CheckedPerson, Mode=TwoWay}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBoxItem}}"/>
+                            <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Expander Header="Views" Style="{DynamicResource OutlookStyleExpanderStyle}" IsExpanded="True" x:Name="processMangerExpander" >
+                <Border BorderBrush="#FFA5A5A5" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2"  >
+                    <Grid>
+                        <ListBox BorderThickness="0" ItemContainerStyle="{DynamicResource ExpanderMenuListitemStyle}" VerticalAlignment="Stretch" Height="Auto" Background="#FFE8F2F9">
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem" />
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem"  />
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem"/>
+                            <ListBoxItem Content="ListBoxItem"  />
+                            <ListBoxItem Content="ListBoxItem"/>
+                        </ListBox>
+                    </Grid>
+                </Border>
+            </Expander>
+            <ListBox ItemsSource="{Binding Persons}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Header="{Binding Name}" IsExpanded="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBoxItem}}"
+                                  >
+                            <TextBlock Text="{Binding Name}"/>
+                        </Expander>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+       
+    </Grid>
+</Window>
