@@ -62,6 +62,7 @@
     <Compile Include="C#\Extensions\SwitchCaseExtension.cs" />
     <Compile Include="C#\FTP\FTPHelper.cs" />
     <Compile Include="C#\HttpHelpers\HttpHelper.cs" />
+    <Compile Include="C#\Images\ImageHelper.cs" />
     <Compile Include="C#\Singleton.cs" />
     <Compile Include="C#\SortingAlgorithm.cs" />
     <Compile Include="C#\UnZipHelper.cs" />
