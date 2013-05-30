@@ -66,6 +66,7 @@
     <Compile Include="C#\Singleton.cs" />
     <Compile Include="C#\SortingAlgorithm.cs" />
     <Compile Include="C#\UnZipHelper.cs" />
+    <Compile Include="C#\Video\VideoOperation.cs" />
     <Compile Include="Collection\SafeObservable.cs" />
     <Compile Include="Encrypt\DEncrypt.cs" />
     <Compile Include="Encrypt\HashEncode.cs" />

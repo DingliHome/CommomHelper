@@ -72,6 +72,9 @@
       <DependentUpon>ByteArrayInListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToInverseConverter.cs" />
+    <Compile Include="ImageShow.xaml.cs">
+      <DependentUpon>ImageShow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MoveResizeRotateWithAdorner\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ByteArrayInListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

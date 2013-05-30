@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,12 +11,6 @@ namespace ClassLibraryHelper.C_.Images
 {
     public class ImageHelper
     {
-        public static void ImageToBitmapSource(string path)
-        {
-            var uri = new Uri(path);
-            var bitmapImage = new BitmapImage(uri);
-        }
-
         /// <summary>
         /// Visual to bitmapSource
         /// </summary>
@@ -23,20 +18,33 @@ namespace ClassLibraryHelper.C_.Images
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <returns></returns>
-        public static BitmapSource FrameworkElementToBitmapSource(FrameworkElement element,int width,int height)
+        public static BitmapSource FrameworkElementToBitmapSource(FrameworkElement element, int width, int height, string path)
         {
-            var renderTargetBitmap = new RenderTargetBitmap(width, height, 96, 96, PixelFormats.Default);
-            renderTargetBitmap.Render(element);
-
-            return renderTargetBitmap;
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                var renderTargetBitmap = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Pbgra32);
+                renderTargetBitmap.Render(element);
+               
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+                encoder.Save(fileStream);
+               
+                return renderTargetBitmap;
+            }
         }
 
-        public static BitmapSource ElementScreenShot(FrameworkElement element)
+        public static BitmapSource FrameworkElementToBitmapSource(FrameworkElement element,
+                                                                  string path)
         {
-            var size = new Size(element.ActualWidth, element.ActualHeight);//如果控件为显示在ui上，可以通过 measure和Arrange来呈现
-            element.Measure(size);
-            element.Arrange(new Rect(new Point(0,0),size));
-            return FrameworkElementToBitmapSource(element, (int) element.ActualWidth, (int) element.ActualHeight);
+            var width =(int)( double.IsNaN(element.Width) ? element.ActualWidth:
+            element.Width);
+            var heigth=(int)( double.IsNaN(element.Height) ? element.ActualHeight:
+            element.Height);
+            var bitmapSource = FrameworkElementToBitmapSource(element, width, heigth, path);
+            return bitmapSource;
         }
+
+
+
     }
 }
