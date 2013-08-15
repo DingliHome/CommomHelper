@@ -15,7 +15,7 @@ namespace UITest
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var view = new ImageShow();
+            var view = new PrintView();
             view.Show();
 
             base.OnStartup(e);

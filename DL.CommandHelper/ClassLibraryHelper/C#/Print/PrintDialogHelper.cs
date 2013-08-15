@@ -11,8 +11,8 @@ namespace ClassLibraryHelper.C_.Print
 {
     public class PrintDialogHelper
     {
-        private const string PrintServerName = "Lee-pc";
-        private const string PrintName = "hp 打印机";
+        private const string PrintServerName = "YULIN-PC";
+        private const string PrintName = "HP LaserJet M1522 series PCL6 Class Driver";
 
         public PrintDialogHelper()
         {
@@ -28,11 +28,11 @@ namespace ClassLibraryHelper.C_.Print
             var printDialog = new PrintDialog();
             SetPrintProperty(printDialog);
             var printQueue = SelectedPrintServer(PrintServerName, PrintName);
-            if (printQueue != null) 
+            if (printQueue != null)
+            {
                 printDialog.PrintQueue = printQueue;
-
-            printDialog.PrintVisual(element,"");
-
+                printDialog.PrintVisual(element, "");
+            }
         }
 
         /// <summary>
@@ -50,11 +50,11 @@ namespace ClassLibraryHelper.C_.Print
 
                 foreach (string printer in printers)
                 {
-                    if (printer.Contains(printerServerName) && printer.Contains("\\\\"))
+                    if (printer.Contains(printerName))
                         printServer = new PrintServer("\\\\" + printerServerName);
                 }
 
-                if (printServer == null) return null;//没有找到打印机
+                if (printServer == null) return null;//没有找到打印机服务器
 
                 var printQueue = printServer.GetPrintQueue(printerName);
                 return printQueue;
