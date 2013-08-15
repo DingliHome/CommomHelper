@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Interactivity;
 
@@ -25,7 +22,7 @@ namespace ClassLibraryHelper.WPF.Behaviors
 
         protected override void Invoke(object parameter)
         {
-            Dispatcher.BeginInvoke(new Action(() =>
+           this.Dispatcher.BeginInvoke(new Action(() =>
                                                   {
                                                       BindablePropertyItem = AssociatedObject.GetType().GetProperty(Property).GetValue(AssociatedObject, null);
                                                   }));

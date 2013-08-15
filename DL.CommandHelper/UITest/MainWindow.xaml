@@ -1,18 +1,18 @@
 ﻿<Window x:Class="UITest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+       
         xmlns:Controls="clr-namespace:ClassLibraryHelper.WPF.Behaviors;assembly=ClassLibraryHelper" 
         Title="MainWindow" Height="350" Width="525">
 
     <Grid>
         <StackPanel>
             <ListBox ItemsSource="{Binding Persons}" SelectionMode="Multiple">
-                <i:Interaction.Triggers>
+                <!--<i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <Controls:ReadOnyPropertyAction Property="SelectedItems"  BindablePropertyItem="{Binding CheckedPerson, Mode=TwoWay}"/>
                     </i:EventTrigger>
-                </i:Interaction.Triggers>
+                </i:Interaction.Triggers>-->
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
