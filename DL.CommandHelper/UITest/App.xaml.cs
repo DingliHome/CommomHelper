@@ -15,7 +15,7 @@ namespace UITest
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var view = new PrintView();
+            var view = new SocketTest();
             view.Show();
 
             base.OnStartup(e);

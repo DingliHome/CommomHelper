@@ -63,6 +63,12 @@
     <Compile Include="C#\CodeTimer.cs" />
     <Compile Include="C#\ComputerInfo.cs" />
     <Compile Include="C#\DelegateHelper.cs" />
+    <Compile Include="C#\Email\Enum\EmailAddrType.cs" />
+    <Compile Include="C#\Email\Enum\EmailType.cs" />
+    <Compile Include="C#\Email\Enum\MailInfoType.cs" />
+    <Compile Include="C#\Email\Helper\MailValidatorHelper.cs" />
+    <Compile Include="C#\Email\MailHelper.cs" />
+    <Compile Include="C#\Email\SmtpHelper.cs" />
     <Compile Include="C#\Extensions\SwitchCaseExtension.cs" />
     <Compile Include="C#\FTP\FTPHelper.cs" />
     <Compile Include="C#\HttpHelpers\HttpHelper.cs" />
