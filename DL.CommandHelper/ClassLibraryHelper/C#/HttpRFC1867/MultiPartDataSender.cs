@@ -21,7 +21,7 @@ using System.Net.Sockets;
  *              Other Linux C,Java Edtion.
  * 
  * *************************************************************/
-namespace multi_http_send
+namespace ClassLibraryHelper.C_
 {
     public class MultiPartDataSender
     {
