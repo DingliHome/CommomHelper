@@ -82,6 +82,8 @@
     <Compile Include="Encrypt\DEncrypt.cs" />
     <Compile Include="Encrypt\HashEncode.cs" />
     <Compile Include="Encrypt\RSACryption.cs" />
+    <Compile Include="Encrypt\RSA\BigInteger.cs" />
+    <Compile Include="Encrypt\RSA\RSAHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sockets\SocketHelper.cs" />
     <Compile Include="SQL\SqlHelper.cs" />
